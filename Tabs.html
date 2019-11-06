@@ -1,0 +1,261 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Tabbed content (vanilla JS)</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+
+
+  <style id="compiled-css" type="text/css">
+      @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  background-color: #fff; }
+
+.tabs h1 {
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 23px;
+  text-align: center; }
+  @media screen and (min-width: 45em) {
+    .tabs h1 {
+      float: left; } }
+
+.tabs__tab {
+  padding: 11px 14px 13px 0px;
+  text-decoration: none;
+  color: #ff5400;
+  line-height: 18px;
+  font-size: 8px;
+  letter-spacing: 0.7px; }
+  @media screen and (min-width: 45em) {
+    .tabs__tab {
+      float: right; } }
+  .tabs__tab:hover {
+    opacity: 0.5; }
+  .tabs__tab--active {
+    color: #ccc; }
+
+.tabs__content {
+  width: 100%;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 5px 5px;
+  min-height: 150px;
+  position: relative; }
+
+.tabs__list {
+  min-width: 100%;
+  overflow: hidden;
+  text-align: center; }
+  @media screen and (min-width: 45em) {
+    .tabs__list {
+      min-width: 320px;
+      overflow: initial; } }
+
+.cards {
+  position: relative;
+  min-height: 200px;
+  clear: both;
+  padding: 37px 34px 0;
+  background: #fff;
+  overflow: hidden; }
+  .cards__card {
+    clear: both;
+    text-decoration: none;
+    position: relative; }
+    @media screen and (min-width: 45em) {
+      .cards__card {
+        min-height: 100px;
+        width: 56%;
+        float: right;
+        clear: none; } }
+    .cards__card:hover {
+      opacity: 0.5; }
+    .cards__card--active {
+      color: #ccc; }
+    .cards__card__box {
+      border-radius: 10px;
+      border: solid 2px;
+      width: 28%;
+      box-shadow: 0px 0px 0px 2px #fff inset;
+      position: relative;
+      float: left;
+      margin-right: 13%;
+      margin-bottom: 10%; }
+      .cards__card__box:after {
+        content: "";
+        padding-bottom: 100%;
+        display: block; }
+    .cards__card__letter {
+      position: absolute;
+      left: 11%;
+      bottom: 8%;
+      font-size: 18px;
+      color: #fff;
+      opacity: 0.5; }
+    .cards__card__label {
+      display: list-item;
+      padding-top: 8px;
+      font-size: 13px;
+      list-style: none;
+      padding-left: 16px;
+      line-height: 18px; }
+      .cards__card__label:before {
+        content: "●";
+        display: initial;
+        position: absolute;
+        font-size: 16px;
+        margin-left: -16px;
+        opacity: 0.5; }
+  @media screen and (min-width: 45em) {
+    .cards__featured {
+      float: left;
+      width: 43%; }
+      .cards__featured .cards__card__box {
+        width: 50%; }
+      .cards__featured .cards__card__letter {
+        font-size: 30px; }
+      .cards__featured label {
+        max-width: 155px;
+        display: inline-block; } }
+  .cards [type=radio] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 100; }
+  .cards [type=radio]:checked ~ * {
+    opacity: 0.5; }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+.wrapper {
+  max-width: 520px;
+  margin: 24px auto;
+  padding: 0 8px; }
+
+.cf {
+  clear: both; }
+
+.p {
+  padding: 12px; }
+
+.green {
+  background: #00a652; }
+
+.pink {
+  background: #ff7dc3; }
+
+.blue {
+  background: #006dfe; }
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+  </style>
+
+
+  
+</head>
+<body>
+    <div class="wrapper">
+  <div class="tabs">
+    <h1>
+      Please select one font
+    </h1>
+    <ul class="tabs__list">
+      <li>
+        <a href="javascript:toggleTab('tb_1', 'content_2');" id="tb_1" class="tabs__tab">BUY FONTS</a>
+      </li>
+      <li>
+        <a href="javascript:toggleTab('tb_2', 'content_1');" id="tb_2" class="tabs__tab tabs__tab--active">MY FONTS</a>
+      </li>
+    </ul>
+    <div class=cf></div>
+    <div id="content_1" class="tabs__content">
+      <div class="cards">
+
+        <div class="cards__card cards__featured">
+          <input type="radio" id="tab-1" name="tab-group-1">
+          <div class="content">
+            <div class="cards__card__box green">
+              <span class="cards__card__letter">M</span>
+            </div>
+            <label class="cards__card__label" for="tab-1">Merriweather project is led by Sorkin type</label>
+          </div>
+        </div>
+
+        <div class="cards__card">
+          <input type="radio" id="tab-2" name="tab-group-1" checked>
+          <div class="content">
+            <div class="cards__card__box pink">
+              <span class="cards__card__letter">R</span>
+            </div>
+            <label class="cards__card__label" for="tab-1">Roboto doesn't compromise, allow­ing letters</label>
+          </div>
+        </div>
+
+        <div class="cards__card">
+          <input type="radio" id="tab-3" name="tab-group-1">
+          <div class="content">
+            <div class="cards__card__box blue">
+              <span class="cards__card__letter">NS</span>
+            </div>
+            <label class="cards__card__label" for="tab-1">Noto Sans covers over 30 scripts</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="content_2" class="tabs__content" style="display:none;">
+      <p class="center">
+        Content of the second tab.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">//<![CDATA[
+
+    
+function toggleTab(tab_id, tab_content) {
+  var tc = document.getElementsByClassName("tabs__content");
+  var i;
+  for (i = 0; i < tc.length; i++) {
+    tc[i].style.display = 'none'; // hide all tab content
+  }
+  document.getElementById(tab_content).style.display = 'block';
+  var tb = document.getElementsByClassName("tabs__tab");
+  var i;
+  for (i = 0; i < tb.length; i++) {
+    tb[i].className = 'tabs__tab';
+  }
+  document.getElementById(tab_id).className = 'tabs__tab tabs__tab--active';
+}
+</script>
+</body>
+</html>
