@@ -1,0 +1,15 @@
+{
+  "name": "jstabs",
+  "version": "1.0.0",
+  "description": "Basic js tabs",
+  "main": "Tabs.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/style.scss   css/style.css"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Daniel",
+  "license": "ISC"
+}
