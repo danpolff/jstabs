@@ -1,3 +1,4 @@
+// Task #2
 function parseURL(url) {
     var a =  document.createElement('a');
     a.href = url;
